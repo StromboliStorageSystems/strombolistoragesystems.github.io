@@ -492,6 +492,8 @@
   }
   .qc-icon.phone { background: rgba(204,74,26,0.1); color: var(--burnt-orange); }
   .qc-icon.whatsapp { background: #25D366; color: white; }
+  .qc-text { display: flex; flex-direction: column; gap: 0.1rem; }
+  .qc-lang { font-size: 0.72rem; font-weight: 400; color: var(--text-muted); letter-spacing: 0.02em; }
   .quote-form { display: flex; flex-direction: column; gap: 0.9rem; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
   .form-field { display: flex; flex-direction: column; gap: 0.3rem; }
@@ -1072,13 +1074,19 @@
         <div class="qc-icon phone">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63a19.79 19.79 0 01-3.07-8.6A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
         </div>
-        +91 91481 50778
+        <div class="qc-text">
+          <span>+91 91481 50778</span>
+          <span class="qc-lang">English · Kannada</span>
+        </div>
       </a>
       <a href="tel:+919880912136" class="quick-contact-item">
         <div class="qc-icon phone">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63a19.79 19.79 0 01-3.07-8.6A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
         </div>
-        +91 98809 12136
+        <div class="qc-text">
+          <span>+91 98809 12136</span>
+          <span class="qc-lang">Tamil · Malayalam</span>
+        </div>
       </a>
       <a href="https://wa.me/919148150778?text=Hi%2C%20I%27d%20like%20to%20request%20a%20free%20kitchen%20measurement%20visit." target="_blank" class="quick-contact-item">
         <div class="qc-icon whatsapp">
