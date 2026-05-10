@@ -1,173 +1,588 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Browse 50+ aluminium kitchen cabinet installations by Stromboli Kitchens in Bangalore – L-shape, straight, storage and more.">
+<meta name="keywords" content="kitchen cabinet gallery Bangalore, aluminium kitchen photos, modular kitchen Bangalore, Stromboli Kitchens gallery">
+<meta name="author" content="Stromboli Kitchens">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#CC4A1A">
+<title>Kitchen Cabinet Gallery | Stromboli Kitchens Bangalore</title>
+<link rel="canonical" href="https://strombolistoragesystems.github.io/gallery.html">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Stromboli Kitchens">
+<meta property="og:title" content="Kitchen Cabinet Gallery | Stromboli Kitchens Bangalore">
+<meta property="og:description" content="Browse 50+ aluminium kitchen cabinet installations by Stromboli Kitchens in Bangalore.">
+<meta property="og:image" content="https://strombolistoragesystems.github.io/img/gallery0.jpg">
+<meta property="og:url" content="https://strombolistoragesystems.github.io/gallery.html">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kitchen Cabinet Gallery | Stromboli Kitchens Bangalore">
+<meta name="twitter:description" content="Browse 50+ aluminium kitchen cabinet installations by Stromboli Kitchens in Bangalore.">
+<meta name="twitter:image" content="https://strombolistoragesystems.github.io/img/gallery0.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://strombolistoragesystems.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "Gallery", "item": "https://strombolistoragesystems.github.io/gallery.html" }
+  ]
+}
+</script>
+<link rel="stylesheet" href="css/stromboli.css">
+<style>
+  body { padding-top: 72px; }
 
-  <head>
+  .filter-bar {
+    background: var(--white);
+    border-bottom: 1px solid rgba(204,74,26,.08);
+    padding: .75rem 4rem;
+    display: flex; align-items: center; gap: .75rem; flex-wrap: wrap;
+    position: sticky; top: 72px; z-index: 50;
+  }
+  .filter-bar span { font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin-right: .25rem; }
+  .filter-btn {
+    background: none; border: 1.5px solid rgba(204,74,26,.2);
+    color: var(--text-muted); border-radius: 100px;
+    padding: .35rem .9rem; font-size: .8rem; font-weight: 600;
+    cursor: pointer; transition: all .2s; font-family: var(--sans);
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--burnt-orange); border-color: var(--burnt-orange); color: var(--white);
+  }
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  .gallery-section { padding: 3rem 4rem 5rem; }
+  .gallery-count { font-size: .85rem; color: var(--text-muted); margin-bottom: 2rem; }
+  .gallery-count strong { color: var(--burnt-orange); }
 
-    <title>Stromboli Kitchens: Gallery</title>
+  .masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  .gallery-card {
+    position: relative; border-radius: 10px;
+    overflow: hidden; cursor: pointer;
+    background: var(--peach-light);
+  }
+  .masonry-grid .gallery-card:nth-child(5n+1) { grid-column: span 2; }
+  .masonry-grid .gallery-card:nth-child(7n+4) { grid-row: span 2; }
 
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+  .gallery-card-inner {
+    width: 100%; aspect-ratio: 1;
+    position: relative; overflow: hidden;
+  }
+  .gallery-card:nth-child(5n+1) .gallery-card-inner { aspect-ratio: 16/9; }
+  .gallery-card:nth-child(7n+4) .gallery-card-inner { aspect-ratio: 2/3; }
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+  .gallery-card-inner img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .5s cubic-bezier(.25,.46,.45,.94);
+  }
+  .gallery-card:hover .gallery-card-inner img { transform: scale(1.06); }
 
-    <!-- Custom styles for this template -->
-    <link href="css/thumbnail-gallery.css" rel="stylesheet">
-    <link href="css/stylish-portfolio.css" rel="stylesheet">
+  .gallery-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(26,16,10,.75) 0%, transparent 55%);
+    opacity: 0; transition: opacity .3s;
+    display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 1.25rem;
+  }
+  .gallery-card:hover .gallery-overlay { opacity: 1; }
+  .gallery-overlay h3 { font-weight: 700; font-size: .95rem; color: var(--white); margin-bottom: .2rem; }
+  .gallery-overlay p  { font-size: .75rem; color: rgba(255,255,255,.65); }
 
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  .lightbox {
+    display: none; position: fixed; inset: 0; z-index: 300;
+    background: rgba(26,16,10,.93); backdrop-filter: blur(8px);
+    align-items: center; justify-content: center;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox-content {
+    position: relative; max-width: 92vw; max-height: 90vh;
+    display: flex; flex-direction: column; align-items: center; gap: .75rem;
+  }
+  #lightboxImg {
+    max-width: 90vw; max-height: 78vh; border-radius: 10px;
+    object-fit: contain; box-shadow: 0 24px 80px rgba(204,74,26,.18);
+    display: none;
+  }
+  .lightbox-caption { color: rgba(255,255,255,.75); font-size: .9rem; text-align: center; }
+  .lightbox-close {
+    position: absolute; top: -2.5rem; right: 0;
+    background: none; border: none; color: var(--white);
+    font-size: 1.75rem; cursor: pointer; opacity: .7; transition: opacity .2s;
+  }
+  .lightbox-close:hover { opacity: 1; }
+  .lightbox-nav { display: flex; gap: 1rem; margin-top: .25rem; }
+  .lightbox-nav button {
+    background: rgba(255,255,255,.12); border: none;
+    color: var(--white); border-radius: 8px;
+    padding: .5rem 1.2rem; cursor: pointer; font-size: .85rem; font-weight: 600;
+    font-family: var(--sans); transition: background .2s;
+  }
+  .lightbox-nav button:hover { background: var(--burnt-orange); }
 
-  </head>
+  .gallery-cta {
+    background: var(--peach-pale);
+    border-top: 1px solid rgba(204,74,26,.1);
+    padding: 4rem;
+    text-align: center;
+  }
+  .gallery-cta h2 { font-family: var(--serif); font-size: 2rem; font-weight: 800; color: var(--dark); margin-bottom: .75rem; }
+  .gallery-cta p { color: var(--text-muted); margin-bottom: 2rem; }
 
-  <body>
+  @media (max-width: 1024px) {
+    .filter-bar { padding: .75rem 2rem; top: 68px; }
+    .gallery-section { padding: 2.5rem 2rem 4rem; }
+    .masonry-grid { grid-template-columns: repeat(2, 1fr); }
+    .masonry-grid .gallery-card:nth-child(7n+4) { grid-row: span 1; }
+    .gallery-cta { padding: 3rem 2rem; }
+  }
+  @media (max-width: 600px) {
+    .masonry-grid { grid-template-columns: 1fr 1fr; gap: .6rem; }
+    .masonry-grid .gallery-card:nth-child(5n+1) { grid-column: span 2; }
+    .masonry-grid .gallery-card:nth-child(5n+1) .gallery-card-inner { aspect-ratio: 4/3; }
+  }
+</style>
+</head>
+<body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top" style="background-color:#00501B">
-      <div class="container">
-        <a class="navbar-brand" href="index.html" style="color:#FFFFFF">Stromboli&reg;</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html" style="color:#FFFFFF">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="color:#FFFFFF">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="color:#FFFFFF">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="color:#FFFFFF">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+<a href="https://wa.me/919148150778?text=Hi%2C%20I%27d%20like%20to%20request%20a%20free%20kitchen%20measurement%20visit." target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
 
-    <!-- Page Content -->
-    <div class="container">
+<nav class="site-nav" id="navbar">
+  <a href="index.html" class="nav-logo"><img src="img/logo-light.png" alt="Stromboli Kitchens"></a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
+    <li><a href="articles/articles.html">Our Process</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="index.html#quote" class="nav-cta">Get a Quote</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-      <h1 class="my-4 text-center text-lg-left">Kitchen Cabinet Gallery</h1>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileClose">✕</button>
+  <a href="index.html"             onclick="closeMobile()">Home</a>
+  <a href="index.html#about"       onclick="closeMobile()">About</a>
+  <a href="articles/articles.html" onclick="closeMobile()">Our Process</a>
+  <a href="index.html#quote"       onclick="closeMobile()">Get a Quote</a>
+  <a href="index.html#contact"     onclick="closeMobile()">Contact</a>
+</div>
 
-      <div class="row text-center text-lg-left">
+<div class="page-header">
+  <span class="section-label">Our Work</span>
+  <h1>Kitchen Cabinet Gallery</h1>
+  <p>Every installation custom-designed, measured, and built for the space it lives in.</p>
+</div>
 
-        <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="img/gallery0-thumb.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="img/gallery1-thumb.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="img/gallery2-thumb.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="img/gallery3-thumb.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="img/gallery4-thumb.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-          </a>
-        </div>
-        <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-          </a>
-        </div>
-        <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-          </a>
-        </div>
-        <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-          </a>
-        </div>
-        <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-          </a>
-        </div>
-        <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-          </a>
-        </div>
-        <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-          </a>
-        </div>
-      </div>
+<div class="filter-bar">
+  <span>Filter:</span>
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="lshape">L-Shape</button>
+  <button class="filter-btn" data-filter="straight">Straight</button>
+  <button class="filter-btn" data-filter="storage">Storage Units</button>
+  <button class="filter-btn" data-filter="installations">Installations</button>
+</div>
 
+<section class="gallery-section">
+  <p class="gallery-count">Showing <strong id="galleryCount">0</strong> photos</p>
+
+  <div class="masonry-grid" id="galleryGrid">
+
+    <div class="gallery-card reveal" data-category="lshape" data-title="L-Shape Kitchen" data-desc="Full L-shape layout with base and wall cabinets">
+      <div class="gallery-card-inner"><img src="img/lshape.jpg" loading="lazy" alt="L-Shape Kitchen"></div>
+      <div class="gallery-overlay"><h3>L-Shape Kitchen</h3><p>Base and wall cabinets, full fit-out</p></div>
     </div>
-    <!-- /.container -->
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h4><strong>Contact Us</strong>
-                    </h4>
-                    <p>Near Jelly Machine,<br>
-Opp. AMC College,<br>
-Bannerghatta Road, Bangalore-560083</p>
-                    <ul class="list-unstyled">
-		      <li><i class="fa fa-phone fa-fw"></i> 9148150778</li>
-		      <li><i class="fa fa-phone fa-fw"></i> 9148150779</li>
-		      <li><i class="fa fa-mobile-phone fa-fw"></i> 9880912136</li>
-		      <li><i class="fa fa-mobile-phone fa-fw"></i> 9972738974</li>
-                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:ky@stromboli.in">ky@stromboli.in</a>
-                        </li>
-                    </ul>
-                    <br>
-                    <ul class="list-inline">
-                        <li>
-                            <a href="https://www.facebook.com/pages/Stromboli-Kitchen-Cabinets/104965361041"><i class="fa fa-facebook fa-fw fa-3x" style="color:#00501B"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/StromboliTweet/"><i class="fa fa-twitter fa-fw fa-3x" style="color:#00501B"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-youtube fa-fw fa-3x" style="color:#00501B"></i></a>
-                        </li>
-                    </ul>
-                    <hr class="small">
-                    <p class="text-muted">Copyright &copy; Stromboli Storage Systems 2018</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div class="gallery-card reveal reveal-delay-1" data-category="storage" data-title="Corner Storage Unit" data-desc="Rotating carousel corner unit maximising dead-corner space">
+      <div class="gallery-card-inner"><img src="img/cornerunit.jpg" loading="lazy" alt="Corner Unit"></div>
+      <div class="gallery-overlay"><h3>Corner Storage Unit</h3><p>Carousel design, no wasted space</p></div>
+    </div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <div class="gallery-card reveal reveal-delay-2" data-category="storage" data-title="Detergent &amp; Sink Holder" data-desc="Built-in sink surround with detergent dispenser and drain tray">
+      <div class="gallery-card-inner"><img src="img/detergentholder.jpg" loading="lazy" alt="Detergent Holder"></div>
+      <div class="gallery-overlay"><h3>Sink Surround</h3><p>Detergent holder with drain tray</p></div>
+    </div>
 
-  </body>
+    <div class="gallery-card reveal" data-category="storage" data-title="Drip Tray Cabinet" data-desc="Lower cabinet with integrated drip tray for wet storage areas">
+      <div class="gallery-card-inner"><img src="img/driptray.jpg" loading="lazy" alt="Drip Tray Cabinet"></div>
+      <div class="gallery-overlay"><h3>Drip Tray Cabinet</h3><p>Lower unit with tray inset</p></div>
+    </div>
 
+    <div class="gallery-card reveal reveal-delay-1" data-category="lshape" data-title="Kitchen Installation" data-desc="Aluminium kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/gallery0-thumb.jpg" data-full="img/gallery0.jpg" loading="lazy" alt="Kitchen"></div>
+      <div class="gallery-overlay"><h3>Kitchen Installation</h3><p>Aluminium cabinet fit-out</p></div>
+    </div>
+
+    <div class="gallery-card reveal reveal-delay-2" data-category="lshape" data-title="Kitchen Installation" data-desc="Aluminium kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/gallery1-thumb.jpg" data-full="img/gallery1.jpg" loading="lazy" alt="Kitchen"></div>
+      <div class="gallery-overlay"><h3>Kitchen Installation</h3><p>Aluminium cabinet fit-out</p></div>
+    </div>
+
+    <div class="gallery-card reveal" data-category="straight" data-title="Kitchen Installation" data-desc="Aluminium kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/gallery2-thumb.jpg" data-full="img/gallery2.jpg" loading="lazy" alt="Kitchen"></div>
+      <div class="gallery-overlay"><h3>Kitchen Installation</h3><p>Aluminium cabinet fit-out</p></div>
+    </div>
+
+    <div class="gallery-card reveal reveal-delay-1" data-category="storage" data-title="Kitchen Installation" data-desc="Aluminium kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/gallery3-thumb.jpg" data-full="img/gallery3.jpg" loading="lazy" alt="Kitchen"></div>
+      <div class="gallery-overlay"><h3>Kitchen Installation</h3><p>Aluminium cabinet fit-out</p></div>
+    </div>
+
+    <div class="gallery-card reveal reveal-delay-2" data-category="lshape" data-title="Kitchen Installation" data-desc="Aluminium kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/gallery4-thumb.jpg" data-full="img/gallery4.jpg" loading="lazy" alt="Kitchen"></div>
+      <div class="gallery-overlay"><h3>Kitchen Installation</h3><p>Aluminium cabinet fit-out</p></div>
+    </div>
+
+    <div class="gallery-card reveal" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-13-44.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-1" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-13-53.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-2" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-13-57.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-13-58.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-1" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-00.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-2" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-02.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-03.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-1" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-04.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-2" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-05.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-06.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-1" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-07.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-2" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-08.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-10.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-1" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-11.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-2" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-12.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-13.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-1" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-14.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-2" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-15.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-16.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-1" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-17.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-2" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-18.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-19.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-1" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-20.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-2" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-21.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-22.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-1" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-23.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-2" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-24.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-25.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-1" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-26.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-2" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-27.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-28.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-1" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-29.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-2" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-30.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-31.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-1" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-32.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-2" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-33.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-34.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-1" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-35.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-2" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-36.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-37.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-1" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-38.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-2" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-39.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-40.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-1" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-41.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+    <div class="gallery-card reveal reveal-delay-2" data-category="installations" data-title="Site Installation" data-desc="On-site kitchen cabinet installation">
+      <div class="gallery-card-inner"><img src="img/photo_2018-07-01_14-14-42.jpg" loading="lazy" alt="Installation"></div>
+      <div class="gallery-overlay"><h3>Site Installation</h3><p>On-site cabinet fit-out</p></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="gallery-cta">
+  <h2>Like what you see?</h2>
+  <p>Get in touch for a free measurement visit and no-obligation quote.</p>
+  <a href="index.html#quote" class="btn-primary">Request a Free Quote</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="img/logo-dark.png" alt="Stromboli Kitchens" style="height:34px;width:auto;margin-bottom:.75rem;">
+      <p>World-class aluminium kitchen cabinets, custom-designed and installed in Bangalore since the 1990s.</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/StromboliKitchens/" class="social-link" aria-label="Facebook">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://in.linkedin.com/company/strombolikitchens" class="social-link" aria-label="LinkedIn">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://twitter.com/StromboliTweet/" class="social-link" aria-label="Twitter">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+        </a>
+        <a href="https://wa.me/919148150778" class="social-link" aria-label="WhatsApp">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Pages</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="articles/articles.html">Our Process</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:+919148150778">+91 91481 50778</a></li>
+        <li><a href="tel:+919880912136">+91 98809 12136</a></li>
+        <li><a href="mailto:ky@stromboli.in">ky@stromboli.in</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Address</h5>
+      <ul>
+        <li>Near Jelly Machine,</li>
+        <li>Opp. AMC College,</li>
+        <li>Bannerghatta Road,</li>
+        <li>Bangalore – 560083</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Stromboli Storage Systems. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="documents/privacy_policy.pdf">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <img id="lightboxImg" src="" alt="">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+    <div class="lightbox-nav">
+      <button id="lightboxPrev">← Previous</button>
+      <button id="lightboxNext">Next →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileNav').classList.add('open'));
+  document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileNav').classList.remove('open'));
+  function closeMobile() { document.getElementById('mobileNav').classList.remove('open'); }
+
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }});
+  }, { threshold: .08 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  const allCards = Array.from(document.querySelectorAll('.gallery-card'));
+  document.getElementById('galleryCount').textContent = allCards.length;
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.filter;
+      let count = 0;
+      allCards.forEach(card => {
+        const show = cat === 'all' || card.dataset.category === cat;
+        card.style.display = show ? '' : 'none';
+        if (show) count++;
+      });
+      document.getElementById('galleryCount').textContent = count;
+    });
+  });
+
+  let currentIdx = 0;
+  function visibleCards() { return allCards.filter(c => c.style.display !== 'none'); }
+
+  function openLightbox(idx) {
+    currentIdx = idx;
+    const card    = allCards[idx];
+    const cardImg = card.querySelector('img');
+    const lbImg   = document.getElementById('lightboxImg');
+    if (cardImg) {
+      lbImg.src = cardImg.dataset.full || cardImg.src;
+      lbImg.alt = card.dataset.title || '';
+      lbImg.style.display = 'block';
+    } else {
+      lbImg.style.display = 'none';
+    }
+    const parts = [card.dataset.title, card.dataset.desc].filter(Boolean);
+    document.getElementById('lightboxCaption').textContent = parts.join(' — ');
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  allCards.forEach((card, idx) => card.addEventListener('click', () => openLightbox(idx)));
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  document.getElementById('lightbox').addEventListener('click', e => { if (e.target === e.currentTarget) closeLightbox(); });
+  document.getElementById('lightboxPrev').addEventListener('click', () => {
+    const vis = visibleCards();
+    const cur = vis.indexOf(allCards[currentIdx]);
+    openLightbox(allCards.indexOf(vis[(cur - 1 + vis.length) % vis.length]));
+  });
+  document.getElementById('lightboxNext').addEventListener('click', () => {
+    const vis = visibleCards();
+    const cur = vis.indexOf(allCards[currentIdx]);
+    openLightbox(allCards.indexOf(vis[(cur + 1) % vis.length]));
+  });
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape')     closeLightbox();
+    if (e.key === 'ArrowLeft')  document.getElementById('lightboxPrev').click();
+    if (e.key === 'ArrowRight') document.getElementById('lightboxNext').click();
+  });
+</script>
+</body>
 </html>
